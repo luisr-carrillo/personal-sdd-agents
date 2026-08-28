@@ -151,6 +151,8 @@ Include applicable work for:
 
 ## Output Format
 
+For every `<one of: ...>` placeholder, write only the selected value in the final artifact, not the option list. When a retained optional record section has no entries, write only `None` instead of retaining an example row or card.
+
 ```markdown
 # Implementation Tasks: <title>
 
@@ -160,10 +162,10 @@ Include applicable work for:
 - Intake / ticket:
 
 ## Readiness
-- Lane: Standard | Deep
+- Lane: <one of: Standard, Deep>
 - Requirements status:
 - Design status:
-- Task list status: Draft | Ready
+- Task list status: <one of: Draft, Ready>
 - Blocking items:
 
 ## Execution Strategy
@@ -187,9 +189,18 @@ Include applicable work for:
 |---|---|---|---|
 
 ## Stage Gates
-- Gate: <when it applies> | Entry conditions: | Exit conditions:
+| Gate | Entry conditions | Exit conditions |
+|---|---|---|
+| <when it applies> | <entry conditions> | <exit conditions> |
 
 ## Risks and Coordination Notes
+
+### Risks
+| Risk | Impact | Likelihood | Mitigation |
+|---|---|---|---|
+| <description> | <impact> | <likelihood> | <mitigation> |
+
+### Coordination Notes
 
 ## Handoff to Implementation
 - Start with:
@@ -197,14 +208,14 @@ Include applicable work for:
 - Complete scope means:
 
 ## Definition of Ready for Implementation
-- [ ] Approved requirements and technical design are referenced.
-- [ ] Every task is atomic, ordered, dependency-aware, and traceable.
-- [ ] Every requirement and AC has implementation and evidence coverage.
-- [ ] Tasks preserve all applicable D-* decisions and design constraints.
-- [ ] Tests and production-readiness work are included where they create value.
-- [ ] Completion and focused verification conditions are explicit for every task.
-- [ ] Stage gates and multi-PR boundaries are safe and executable where applicable.
-- [ ] No blocking product or technical question remains unresolved.
+- Approved requirements and technical design are referenced.
+- Every task is atomic, ordered, dependency-aware, and traceable.
+- Every requirement and AC has implementation and evidence coverage.
+- Tasks preserve all applicable D-* decisions and design constraints.
+- Tests and production-readiness work are included where they create value.
+- Completion and focused verification conditions are explicit for every task.
+- Stage gates and multi-PR boundaries are safe and executable where applicable.
+- No blocking product or technical question remains unresolved.
 ```
 
 ## Quality Bar

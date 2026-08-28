@@ -180,31 +180,34 @@ Persist the report so the user never has to copy your response manually:
 
 ## Output Format
 
-Use this structure by default. Omit or condense sections per Right-Sizing. Write the contiguous markdown artifact to the `verification.md` selected under Artifact Persistence.
+Use this structure by default. Omit or condense sections per Right-Sizing. Write the contiguous markdown artifact to the `verification.md` selected under Artifact Persistence. For every `<one of: ...>` placeholder, write only the selected value in the final artifact, not the option list. When a retained optional record section has no entries, write only `None` instead of retaining an example row or card. Write `None` when there are no deviations.
 
 ```markdown
 # Verification Report: <title>
 
 ## References
 
-- Requirements: <path> | Status: Approved | Incomplete | Definition of Ready: Satisfied | Incomplete
-- Technical design: Not applicable (Quick) | <path> | Status: Approved | Incomplete | Definition of Ready: Satisfied | Incomplete
-- Tasks: Not applicable (Quick) | <path> | Status: Ready | Incomplete | Completion state: Complete | Partial
-- Lane: Quick | Standard | Deep
-- Artifact basis: Approved/Ready | Unapproved/Incomplete (<details>)
+| Artifact | Path / applicability | Status | Readiness / completion |
+|---|---|---|---|
+| Requirements | <path> | <one of: Approved, Incomplete> | Definition of Ready: <one of: Satisfied, Incomplete> |
+| Technical design | <path or Not applicable (Quick)> | <one of: Approved, Incomplete, Not applicable> | Definition of Ready: <one of: Satisfied, Incomplete, Not applicable> |
+| Tasks | <path or Not applicable (Quick)> | <one of: Ready, Incomplete, Not applicable> | Completion state: <one of: Complete, Partial, Not applicable> |
+
+- Lane: <one of: Quick, Standard, Deep>
+- Artifact basis: <one of: Approved/Ready, Unapproved/Incomplete (<details>)>
 - Change-set basis: <for example git diff origin/main...HEAD @ <sha>>
 - PR / ticket:
 
 ## Verdict
 
-- Status: Ready | Ready with conditions | Not ready
+- Status: <one of: Ready, Ready with conditions, Not ready>
 - Conditions / required follow-ups:
 
 ## Acceptance Criteria
 
 | AC   | Evidence                         | Result                                  | Condition / user-approved completion owner                                |
 | ---- | -------------------------------- | --------------------------------------- | ------------------------------------------------------------------------- |
-| AC-1 | <test, command, or manual check> | Pass / Fail / Not Verifiable (<reason>) | <required verification, completion owner, completion point>               |
+| AC-1 | <test, command, or manual check> | <one of: Pass, Fail, Not Verifiable (<reason>)> | <required verification, completion owner, completion point>               |
 
 ## Automated Checks
 
@@ -217,14 +220,16 @@ Use this structure by default. Omit or condense sections per Right-Sizing. Write
 
 - Location: <file:line>
 - Relates to: <AC / FR / NFR / T / D IDs>
-- Source: Reviewer | PR comment (@handle) | Bot (<name>)
+- Source: <one of: Reviewer, PR comment (@handle), Bot (<name>)>
 - Evidence:
 - Recommendation:
-- Status: Open | Resolved (<commit or full-review basis/checkpoint>) | Accepted by User (Major only; follow-up: <ticket>)
+- Status: <one of: Open, Resolved (<commit or full-review basis/checkpoint>), Accepted by User (Major only; follow-up: <ticket>)>
 
 ## Artifact and Lane Deviations
 
-- DV-1: <what differs from requirements/design/tasks/lane> | Governing ID: <FR/NFR/AC/T/D or None> | Classification: acceptable | needs user decision
+| ID / deviation | Governing ID | Classification |
+|---|---|---|
+| DV-1: <what differs from requirements/design/tasks/lane> | <FR/NFR/AC/T/D or None> | <one of: acceptable, needs user decision> |
 
 ## Unplanned Changes
 

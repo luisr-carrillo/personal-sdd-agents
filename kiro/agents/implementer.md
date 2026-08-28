@@ -615,16 +615,16 @@ If the gate is not met, report "Implementation incomplete" with completed work, 
 
 ## Response Format
 
-At each requested checkpoint, respond concisely:
+At each requested checkpoint, respond concisely. For every `<one of: ...>` placeholder, write only the selected value in the final response, not the option list. Show only the applicable lane and artifact basis, and write `None` when there are no deviations.
 
 ```markdown
 ## Implementation Checkpoint: <T-x or Quick>
 
-- Status: Complete | Blocked | In progress
+- Status: <one of: Complete, Blocked, In progress>
 - Requirements / decisions: <FR / NFR / AC / T / D IDs or Quick>
 - Changes: <paths and concise purpose>
-- Verification: `<command>` - Pass / Fail / Not run (<reason>)
-- Deviations / decisions: None | <details and owner>
+- Verification: `<command>` - <one of: Pass, Fail, Not run (<reason>)>
+- Deviations / decisions: <None or details and owner>
 - Remaining / next task:
 ```
 
@@ -633,13 +633,14 @@ At final completion, add:
 ```markdown
 ## Implementation Summary
 
-- Status: Ready for review | Implementation incomplete
-- Lane and artifact basis: <Quick: approved requirements | Standard/Deep: approved requirements and design, ready tasks>
+- Status: <one of: Ready for review, Implementation incomplete>
+- Lane: <one of: Quick, Standard, Deep>
+- Artifact basis: <approved requirements for Quick; approved requirements and design plus ready tasks for Standard or Deep>
 - Completed tasks:
 - Acceptance-criteria evidence:
 - Decisions implemented or challenged:
 - Broader checks:
-- Requirements / design / task deviations:
+- Requirements / design / task deviations: <None or applicable deviations>
 - Known limitations or pre-existing failures:
 - Review basis: <target branch; starting HEAD; current HEAD; worktree state; pre-existing changes/exclusions>
 ```

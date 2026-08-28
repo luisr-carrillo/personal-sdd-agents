@@ -235,7 +235,7 @@ Identifier lifecycle:
 
 ## Output Format
 
-Use this structure by default. Omit or condense optional sections per Right-Sizing, but preserve readiness, approval, and traceability fields in every lane.
+Use this structure by default. Omit or condense optional sections per Right-Sizing, but preserve readiness, approval, and traceability fields in every lane. For every `<one of: ...>` placeholder, write only the selected value in the final artifact, not the option list. When a retained optional record section has no entries, write only `None` instead of retaining an example row or card. Under Approved Waivers, write only `None` when empty; otherwise omit `None` and repeat the waiver card.
 
 ```markdown
 # Requirements: <title>
@@ -247,9 +247,9 @@ Use this structure by default. Omit or condense optional sections per Right-Sizi
 - Related requirements / PRs / docs:
 
 ## Workflow
-- Lane: Quick | Standard | Deep
+- Lane: <one of: Quick, Standard, Deep>
 - Lane reason:
-- Status: Draft | Approved
+- Status: <one of: Draft, Approved>
 - Approved by: User
 - Confirmation reference / date:
 
@@ -276,12 +276,20 @@ Use this structure by default. Omit or condense optional sections per Right-Sizi
 ## Requirements
 
 ### Functional
-- FR-1 [Event-driven] | Status: Proposed | Approved | Withdrawn | Source: <source>
-  WHEN <event>, THE <system> SHALL <behavior>.
+#### FR-1 [Event-driven]
+
+- Status: <one of: Proposed, Approved, Withdrawn>
+- Source: <source>
+
+WHEN <event>, THE <system> SHALL <behavior>.
 
 ### Non-Functional
-- NFR-1 [State-driven] | Status: Proposed | Approved | Withdrawn | Source: <source>
-  WHILE <state>, THE <system> SHALL <measurable behavior>.
+#### NFR-1 [State-driven]
+
+- Status: <one of: Proposed, Approved, Withdrawn>
+- Source: <source>
+
+WHILE <state>, THE <system> SHALL <measurable behavior>.
 
 ### Requirement Notes by Concern
 - UX / UI:
@@ -302,37 +310,55 @@ Use this structure by default. Omit or condense optional sections per Right-Sizi
 - Sequencing:
 
 ## Risks
-- Risk: <description> | Impact: | Likelihood: | Mitigation:
+| Risk | Impact | Likelihood | Mitigation |
+|---|---|---|---|
+| <description> | <impact> | <likelihood> | <mitigation> |
 
 ## Open Questions
-- Question: <text> | Why it matters: | Owner / source: | Blocking: yes/no | Proposed assumption:
+### <Q-* only when cross-phase; otherwise descriptive question heading>
+
+- Question: <text>
+- Why it matters:
+- Owner / source:
+- Blocking: <one of: yes, no>
+- Proposed assumption:
 
 ## Assumptions
-- A-1 (only when cross-phase): <assumption> | Evidence: | Impact: | Validation point:
+### <A-* only when cross-phase; otherwise descriptive assumption heading>
+
+- Assumption: <text>
+- Evidence:
+- Impact:
+- Validation point:
 
 ## Approved Waivers
-- None | <waived item> | Approved by: User | Rationale: | Accepted risk:
+<None when empty; otherwise omit this line>
+
+### <waived item; omit when None>
+
+- Approved by: User
+- Rationale:
+- Accepted risk:
 
 ## Next Phase
-- Quick: Implementer
-- Standard / Deep: Designer
+- Next agent: <one of: Implementer for Quick, Designer for Standard or Deep>
 - Defined scope:
 - Constraints to preserve:
 - Verification focus:
 - Production or compatibility considerations requiring technical design:
 
 ## Definition of Ready
-- [ ] Problem, outcome, and scope are clear.
-- [ ] Requirements and acceptance criteria are identified and traceable (FR / NFR / AC IDs).
-- [ ] UI states are defined or explicitly marked not applicable.
-- [ ] Data, API, security, privacy, and integration needs are identified.
-- [ ] Non-functional and production-readiness needs are identified or marked not applicable.
-- [ ] Risks, dependencies, and open questions are documented with owners where needed.
-- [ ] No blocking open question remains unresolved; any exception is an explicit, scoped waiver from the user, with rationale and accepted risk recorded in these requirements.
-- [ ] The lane is selected from explicit risk and blast-radius criteria.
-- [ ] Every normative UX, API, data, security, privacy, permission, accessibility, and production obligation has an FR-* or NFR-* identifier.
-- [ ] Every proposed implied requirement is approved, rejected into Out of Scope, or explicitly waived.
-- [ ] Human approval is recorded in Workflow; the Analyst never self-approves.
+- Problem, outcome, and scope are clear.
+- Requirements and acceptance criteria are identified and traceable (FR / NFR / AC IDs).
+- UI states are defined or explicitly marked not applicable.
+- Data, API, security, privacy, and integration needs are identified.
+- Non-functional and production-readiness needs are identified or marked not applicable.
+- Risks, dependencies, and open questions are documented with owners where needed.
+- No blocking open question remains unresolved; any exception is an explicit, scoped waiver from the user, with rationale and accepted risk recorded in these requirements.
+- The lane is selected from explicit risk and blast-radius criteria.
+- Every normative UX, API, data, security, privacy, permission, accessibility, and production obligation has an FR-* or NFR-* identifier.
+- Every proposed implied requirement is approved, rejected into Out of Scope, or explicitly waived.
+- Human approval is recorded in Workflow; the Analyst never self-approves.
 ```
 
 ## Quality Bar

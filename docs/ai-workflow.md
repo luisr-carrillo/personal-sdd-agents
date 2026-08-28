@@ -107,6 +107,8 @@ Rules:
 
 ## 4. Artifact Model
 
+V2 artifacts use a hybrid semantic Markdown format: simple bullets for scalar metadata, vertical cards with headings and labeled bullets for requirements and other record-like entries, tables for comparable records, and checklists only for executable tasks. Option placeholders use `<one of: ...>`; final artifacts write only the selected value. When a retained optional record section has no entries, write `None` or `Not applicable` instead of keeping example rows or cards. Escape a literal pipe inside a table cell as `\|`.
+
 ### `intake.md`
 
 `intake.md` is the user-controlled source snapshot, not the approved requirements contract.
@@ -268,13 +270,25 @@ Unwanted event:   IF <condition>, THEN THE <system> SHALL <mitigation>
 Example:
 
 ```markdown
-- FR-1 [Event-driven] | Status: Approved | Source: JIRA-123 AC-2
-  WHEN an authorized user submits a valid order,
-  THE checkout UI SHALL submit exactly one order request.
+### Functional
 
-- NFR-1 [State-driven] | Status: Approved | Source: Accessibility policy
-  WHILE order submission is pending,
-  THE checkout UI SHALL expose its busy state programmatically and prevent duplicate submission.
+#### FR-1 [Event-driven]
+- Status: Approved
+- Source: JIRA-123 AC-2
+
+WHEN an authorized user submits a valid order,
+THE checkout UI SHALL submit exactly one order request.
+
+### Non-Functional
+
+#### NFR-1 [State-driven]
+- Status: Approved
+- Source: Accessibility policy
+
+WHILE order submission is pending,
+THE checkout UI SHALL expose its busy state programmatically and prevent duplicate submission.
+
+### Acceptance Criteria
 
 - AC-1 (verifies FR-1, NFR-1):
   Given an authorized user and a valid order,

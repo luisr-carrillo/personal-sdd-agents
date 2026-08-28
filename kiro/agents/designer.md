@@ -164,6 +164,8 @@ Address these when applicable:
 
 ## Output Format
 
+For every `<one of: ...>` placeholder, write only the selected value in the final artifact, not the option list. When a retained optional record section has no entries, write only `None` instead of retaining an example row or card.
+
 ```markdown
 # Technical Design: <title>
 
@@ -173,10 +175,10 @@ Address these when applicable:
 - Designs / ADRs / contracts:
 
 ## Readiness
-- Lane: Standard | Deep
+- Lane: <one of: Standard, Deep>
 - Requirements status:
 - Requirements approval reference:
-- Design status: Draft | Approved
+- Design status: <one of: Draft, Approved>
 - Design approved by: User
 - Approval reference / date:
 - Blocking items:
@@ -200,7 +202,12 @@ Address these when applicable:
 |---|---|---|
 
 ## Decision Log
-- D-1: <decision> | Rationale: | Alternatives: | User approval needed: no | yes | Status: Proposed | Approved | Withdrawn
+### D-1: <decision>
+
+- Rationale:
+- Alternatives:
+- User approval needed: <one of: no, yes>
+- Status: <one of: Proposed, Approved, Withdrawn>
 
 ## Test Strategy
 - Unit / component:
@@ -228,10 +235,17 @@ Address these when applicable:
 ## Dependencies
 
 ## Risks
-- Risk: <description> | Impact: | Likelihood: | Mitigation:
+| Risk | Impact | Likelihood | Mitigation |
+|---|---|---|---|
+| <description> | <impact> | <likelihood> | <mitigation> |
 
 ## Open Technical Questions
-- Question: <text> | Why it matters: | Blocking: yes/no | Recommended default:
+### <Q-* only when cross-phase; otherwise descriptive question heading>
+
+- Question: <text>
+- Why it matters:
+- Blocking: <one of: yes, no>
+- Recommended default:
 
 ## Out of Scope
 
@@ -241,13 +255,13 @@ Address these when applicable:
 - Constraints the Planner must carry forward:
 
 ## Definition of Ready for Tasking
-- [ ] Approved requirements are referenced and unchanged.
-- [ ] Every applicable requirement and AC maps to a design element or verification mechanism.
-- [ ] Affected boundaries, interfaces, and compatibility constraints are explicit.
-- [ ] Consequential decisions and alternatives are recorded as D-* entries.
-- [ ] Testing and applicable production safeguards are technically defined.
-- [ ] No blocking product or technical question remains unresolved.
-- [ ] Explicit user approval of the technical design is recorded; the Designer never self-approves.
+- Approved requirements are referenced and unchanged.
+- Every applicable requirement and AC maps to a design element or verification mechanism.
+- Affected boundaries, interfaces, and compatibility constraints are explicit.
+- Consequential decisions and alternatives are recorded as D-* entries.
+- Testing and applicable production safeguards are technically defined.
+- No blocking product or technical question remains unresolved.
+- Explicit user approval of the technical design is recorded; the Designer never self-approves.
 ```
 
 ## Quality Bar
